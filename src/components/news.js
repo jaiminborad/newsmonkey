@@ -10,7 +10,7 @@ export default function News(props) {
 
   const fetchDetails = async () => {
     setLoading(true);
-    const API_KEY = "a0c425200ce74ff4bc9e728d81dfe3a1";
+    const API_KEY = process.env.REACT_APP_API_KEY;
     let url = `https://newsapi.org/v2/top-headlines?sources?category=${props.categorie}&country=${props.country}&apiKey=${API_KEY}&page=${page}&pageSize=${props.pageSize}`;
 
     let response = await fetch(url);
