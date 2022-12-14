@@ -15,6 +15,7 @@ export default function News(props) {
 
     let response = await fetch(url);
     let data = await response.json();
+    console.log({ data });
     setLoading(false);
     setTotalArticles(data.totalResults);
     setArticles(data.articles);
@@ -43,6 +44,7 @@ export default function News(props) {
       {loading && <Spinner />}
       <div className="row">
         {!loading &&
+          articles &&
           articles.map((article) => (
             <div className="col-md-4">
               <NewsItem
